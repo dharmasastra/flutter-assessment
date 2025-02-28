@@ -6,8 +6,6 @@ import 'package:flutter_app1/home/views/widgets/gradient_border_search_bar.dart'
 import 'package:flutter_app1/home/views/widgets/product_ranking_list.dart';
 import 'package:flutter_app1/home/views/widgets/top_reviewer_section.dart';
 import 'package:flutter_app1/profile/bloc/profile_bloc.dart';
-import 'package:flutter_app1/profile/models/profile.dart';
-import 'package:flutter_app1/profile/views/profile_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -119,19 +117,6 @@ class HomeScreen extends StatelessWidget {
   }
 
   Widget _buildTopReviewersSection(BuildContext context) {
-    // Sample reviewer data
-    final reviewers = <Map<String, String>>[
-      {'id': '1', 'name': 'Name01', 'image': 'assets/images/reviewer1.png'},
-      {'id': '2', 'name': 'Name02', 'image': 'assets/images/reviewer2.png'},
-      {'id': '3', 'name': 'Name03', 'image': 'assets/images/reviewer3.png'},
-      {'id': '4', 'name': 'Name04', 'image': 'assets/images/reviewer4.png'},
-      {'id': '5', 'name': 'Name05', 'image': 'assets/images/reviewer5.png'},
-      {'id': '6', 'name': 'Name06', 'image': 'assets/images/reviewer6.png'},
-      {'id': '7', 'name': 'Name07', 'image': 'assets/images/reviewer7.png'},
-      {'id': '8', 'name': 'Name08', 'image': 'assets/images/reviewer8.png'},
-      {'id': '9', 'name': 'Name09', 'image': 'assets/images/reviewer9.png'},
-      {'id': '10', 'name': 'Name10', 'image': 'assets/images/reviewer10.png'},
-    ];
 
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 16),
@@ -187,83 +172,6 @@ class HomeScreen extends StatelessWidget {
               return Container();
             },
           ),
-          // Horizontal scrolling list of reviewers
-          // Container(
-          //   height: 140,
-          //   margin: const EdgeInsets.only(top: 12),
-          //   child: ListView.builder(
-          //     padding: const EdgeInsets.symmetric(horizontal: 12),
-          //     scrollDirection: Axis.horizontal,
-          //     itemCount: reviewers.length,
-          //     itemBuilder: (context, index) {
-          //       final reviewer = reviewers[index];
-          //       // Special styling for the first item
-          //       final isFirstItem = index == 0;
-
-          //       return GestureDetector(
-          //         onTap: () {
-          //           // Navigate to profile screen when clicked
-          //           Navigator.push(
-          //             context,
-          //             // ignore: inference_failure_on_instance_creation
-          //             MaterialPageRoute(
-          //               builder: (context) =>
-          //                   ProfileScreen(reviewerId: reviewer['id']!),
-          //             ),
-          //           );
-          //         },
-          //         child: Container(
-          //           width: 80,
-          //           margin: const EdgeInsets.symmetric(horizontal: 4),
-          //           child: Column(
-          //             children: [
-          //               Stack(
-          //                 children: [
-          //                   // Profile image with special border for first item
-          //                   Container(
-          //                     width: 72,
-          //                     height: 72,
-          //                     margin: const EdgeInsets.only(top: 10),
-          //                     decoration: BoxDecoration(
-          //                       shape: BoxShape.circle,
-          //                       border: isFirstItem
-          //                           ? Border.all(color: Colors.amber, width: 3)
-          //                           : null,
-          //                     ),
-          //                     child: ClipRRect(
-          //                       borderRadius: BorderRadius.circular(36),
-          //                       child: Image.asset(
-          //                         reviewer['image']!,
-          //                         fit: BoxFit.cover,
-          //                       ),
-          //                     ),
-          //                   ),
-          //                   // Crown icon for the first reviewer
-          //                   if (isFirstItem)
-          //                     const Icon(
-          //                       Icons.star,
-          //                       color: Colors.amber,
-          //                       size: 16,
-          //                     ),
-          //                 ],
-          //               ),
-          //               const SizedBox(height: 4),
-          //               // Reviewer name
-          //               Text(
-          //                 reviewer['name']!,
-          //                 style: const TextStyle(
-          //                   fontSize: 14,
-          //                   fontWeight: FontWeight.w500,
-          //                 ),
-          //                 textAlign: TextAlign.center,
-          //               ),
-          //             ],
-          //           ),
-          //         ),
-          //       );
-          //     },
-          //   ),
-          // ),
         ],
       ),
     );

@@ -19,7 +19,7 @@ class ProfileScreen extends StatelessWidget {
         'tags': ['가격 저렴해요', 'CPU로도 고온', '서열작업가능해요', '게임 잘 돌아가요'],
         'comments': [
           '멀티 작업도 잘 되고 꽤 괜찮습니다. 저희 회사 고객님들에게도 추천 가능한 제품인 듯 합니다.',
-          '3600에서 바꾸니 체감이 살짝 되네요. 버라이어티한 느낌 까지는 아닙니다.'
+          '3600에서 바꾸니 체감이 살짝 되네요. 버라이어티한 느낌 까지는 아닙니다.',
         ],
         'images': [
           'assets/images/review_image1.png',
@@ -97,8 +97,11 @@ class ProfileScreen extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Icon(Icons.emoji_events,
-                          color: Colors.amber, size: 16),
+                      const Icon(
+                        Icons.emoji_events,
+                        color: Colors.amber,
+                        size: 16,
+                      ),
                       const SizedBox(width: 4),
                       Text(
                         '${profile.tier}',
@@ -116,7 +119,9 @@ class ProfileScreen extends StatelessWidget {
                   Container(
                     width: double.infinity,
                     padding: const EdgeInsets.symmetric(
-                        vertical: 12, horizontal: 16),
+                      vertical: 12,
+                      horizontal: 16,
+                    ),
                     decoration: BoxDecoration(
                       color: Colors.grey.shade200,
                       borderRadius: BorderRadius.circular(8),
@@ -177,8 +182,11 @@ class ProfileScreen extends StatelessWidget {
                           ),
                         ),
                         SizedBox(width: 4),
-                        Icon(Icons.arrow_drop_down,
-                            size: 16, color: Colors.amber),
+                        Icon(
+                          Icons.arrow_drop_down,
+                          size: 16,
+                          color: Colors.amber,
+                        ),
                       ],
                     ),
                   ),
@@ -343,13 +351,14 @@ class ProfileScreen extends StatelessWidget {
 
           const SizedBox(height: 12),
 
-          // Horizontal scrollable tags - MODIFIED SECTION
-          Container(
+          // Horizontal scrollable tags
+          SizedBox(
             height: 40,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: (review['tags'] as List<String>).length,
               itemBuilder: (context, index) {
+                // ignore: avoid_dynamic_calls
                 final tag = review['tags'][index];
                 return Container(
                   margin: const EdgeInsets.only(right: 8),
@@ -373,7 +382,7 @@ class ProfileScreen extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: (review['comments'] as List<String>).map((comment) {
-              bool isHighlighted =
+              final isHighlighted =
                   (review['comments'] as List<String>).indexOf(comment) == 0;
               return Container(
                 margin: const EdgeInsets.only(bottom: 8),
@@ -415,7 +424,7 @@ class ProfileScreen extends StatelessWidget {
 
           // Review images
           if ((review['images'] as List).isNotEmpty)
-            Container(
+            SizedBox(
               height: 100,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
@@ -430,6 +439,7 @@ class ProfileScreen extends StatelessWidget {
                       image: DecorationImage(
                         // ignore: avoid_dynamic_calls
                         image:
+                            // ignore: avoid_dynamic_calls
                             AssetImage(review['images'][imageIndex] as String),
                         fit: BoxFit.cover,
                       ),
@@ -450,8 +460,11 @@ class ProfileScreen extends StatelessWidget {
             ),
             child: Row(
               children: [
-                Icon(Icons.chat_bubble_outline,
-                    color: Colors.grey.shade400, size: 20),
+                Icon(
+                  Icons.chat_bubble_outline,
+                  color: Colors.grey.shade400,
+                  size: 20,
+                ),
                 const SizedBox(width: 12),
                 Text(
                   '댓글 달기...',
